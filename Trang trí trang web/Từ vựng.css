@@ -1,0 +1,644 @@
+
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-image: url('https://images6.alphacoders.com/114/1148181.png');
+            background-size: cover;  
+            background-position: center;  
+            background-repeat: no-repeat;
+}
+
+.container {
+  display: flex;
+  width: 90%;
+  height: 90vh; /* Đảm bảo toàn bộ container vừa với màn hình */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+  overflow: hidden;
+  background: white;
+}
+
+/* Sidebar */
+.sidebar {
+  flex: 1;
+  padding: 20px;
+  background: #f0f0f0;
+  border-right: 1px solid #ddd;
+  overflow-y: auto; /* Thêm thanh cuộn dọc */
+  height: 100%; /* Chiều cao toàn phần */
+}
+
+.sidebar h2 {
+  margin-bottom: 20px;
+  color: #333;
+}
+
+.search-bar {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 20px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+}
+
+.group-list {
+  list-style: none;
+  padding: 0;
+}
+
+.group-item {
+  padding: 10px;
+  margin: 5px 0;
+  background: #ffffff;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.group-item:hover {
+  background: #e0e0e0;
+    transition: background 0.3s ease;
+}
+
+button {
+  width: 100%;
+  padding: 10px;
+  background: #007BFF;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-top: 20px;
+}
+
+button:hover {
+  background: #0056b3;
+}
+
+/* Main Content */
+.main-content {
+  flex: 2;
+  padding: 20px;
+  overflow-y: auto; /* Thêm thanh cuộn dọc */
+  height: 100%; /* Chiều cao toàn phần */
+}
+
+.flashcard {
+  background: #ffffff;
+  border-radius: 10px;
+  padding: 20px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+
+.flashcard h2 {
+  margin-bottom: 10px;
+  font-size: 24px;
+  color: #333;
+}
+
+.flashcard img {
+  max-width: 80%; /* Giới hạn kích thước hình ảnh */
+  margin: 20px auto; /* Thêm khoảng cách giữa hình ảnh và các thành phần khác */
+  display: block; /* Đảm bảo hình ảnh được căn giữa */
+  border-radius: 10px; /* Bo góc cho hình ảnh */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Thêm hiệu ứng bóng */
+}
+
+.tags, .actions {
+  margin-top: 20px;
+}
+
+button#not-learned {
+  background: #FF4C4C;
+}
+
+button#uncertain {
+  background: #FFC107;
+}
+
+button#learned {
+  background: #28A745;
+}
+
+/* Progress Section */
+.progress-section {
+  flex: 1;
+  padding: 20px;
+  background: #f9f9f9;
+  border-left: 1px solid #ddd;
+  overflow-y: auto; /* Thêm thanh cuộn dọc */
+  height: 100%; /* Chiều cao toàn phần */
+}
+
+.progress-bar {
+  width: 100%;
+  height: 20px;
+  background: #ddd;
+  border-radius: 5px;
+  display: flex;
+  overflow: hidden;
+}
+
+.progress {
+  height: 100%;
+}
+
+.progress-not-learned {
+  background: #FF4C4C; /* Đỏ */
+  width: 0;
+}
+
+.progress-uncertain {
+  background: #FFC107; /* Vàng */
+  width: 0;
+}
+
+.progress-learned {
+  background: #28A745; /* Xanh lá cây */
+  width: 0;
+}
+
+.word-status {
+  list-style: none;
+  padding: 0;
+}
+
+.word-status li {
+  margin: 10px 0;
+}
+
+body.dark {
+  background-image: url('https://i.redd.it/dark-mode-otherworld-wallpaper-v0-utqp151a9e7b1.png?width=2560&format=png&auto=webp&s=83be9ba625a27a96641d450fd82513424d605f9e');
+            background-size: cover;  
+            background-position: center;  
+            background-repeat: no-repeat;
+  color: #fff;
+}
+
+body.dark .container {
+  background: #444;
+  color: #fff;
+}
+
+body.dark .sidebar {
+  background: #555;
+  color: #fff;
+}
+
+body.dark .progress-section {
+  background: #555;
+  color: #fff;
+}
+
+body.dark .flashcard {
+  background: #666;
+  color: #fff;
+}
+
+body.dark button {
+  background: #444; /* Xám đậm */
+  color: white;
+  border: 1px solid #666;
+}
+
+body.dark button:hover {
+  background: #555; /* Xám trung bình khi hover */
+}
+
+body.dark .group-item {
+  background: #444;
+  color: #fff;
+}
+
+body.dark .group-item:hover {
+  background: #555;
+}
+
+.search-item {
+  padding: 10px;
+  cursor: pointer;
+  background: #f0f0f0;
+  margin: 5px 0;
+  border-radius: 5px;
+  transition: background 0.3s;
+}
+
+.search-item:hover {
+  background: #e0e0e0;
+}
+
+body.dark .search-item {
+  background: #444; /* Màu nền trong chế độ tối */
+  color: #fff; /* Màu chữ trong chế độ tối */
+}
+
+body.dark .search-item:hover {
+  background: #555; /* Màu nền khi hover trong chế độ tối */
+}
+
+.modal {
+  display: none; /* Ẩn theo mặc định */
+  position: fixed;
+  z-index: 1000;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0, 0, 0, 0.5); /* Màu nền mờ */
+}
+
+/* Nội dung modal */
+.modal-content {
+  background-color: #fefefe;
+  margin: 10% auto;
+  padding: 20px;
+  border: 1px solid #888;
+  width: 80%;
+  max-width: 600px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  overflow-y: auto; /* Thêm thanh cuộn dọc */
+  max-height: 80vh; /* Giới hạn chiều cao tối đa */
+}
+
+body.dark .modal-content {
+  background-color: #333; /* Xám đậm */
+  color: white; /* Chữ trắng */
+  border: 1px solid #555; /* Viền xám nhạt */
+}
+
+body.dark .close {
+  color: #bbb; /* Nút đóng modal màu xám nhạt */
+}
+
+body.dark .close:hover {
+  color: white; /* Nút đóng sáng hơn khi hover */
+}
+
+/* Nút đóng modal */
+.close {
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+/* Phần tử kéo được (draggable) */
+.draggable {
+  padding: 10px;
+  margin: 5px 0;
+  background: #007bff;
+  color: white;
+  border-radius: 5px;
+  cursor: grab;
+  text-align: center;
+  transition: background 0.3s, color 0.3s;
+}
+
+.draggable:active {
+  cursor: grabbing;
+}
+
+/* Phần tử thả được (droppable) */
+.droppable {
+  padding: 15px;
+  margin: 5px 0;
+  background: #f0f0f0;
+  border: 2px dashed #007bff;
+  border-radius: 5px;
+  min-height: 40px;
+  text-align: center;
+  transition: background 0.3s, color 0.3s;
+}
+
+.droppable:hover {
+  background: #e0e0e0;
+}
+
+/* Chế độ tối */
+body.dark .draggable {
+  background: #555; /* Nền tối */
+  color: #fff; /* Chữ trắng */
+}
+
+body.dark .draggable:active {
+  background: #666;
+}
+
+body.dark .droppable {
+  background: #333; /* Nền tối */
+  border: 2px dashed #777; /* Viền tối */
+  color: #fff; /* Chữ trắng */
+}
+
+body.dark .droppable:hover {
+  background: #444; /* Hiệu ứng hover */
+}
+
+.draggable:hover {
+  background: #0056b3; /* Màu nền khi hover */
+}
+
+body.dark .draggable:hover {
+  background: #777; /* Màu nền tối hơn khi hover */
+}
+
+.droppable:hover {
+  background: #e0e0e0;
+}
+
+body.dark .droppable:hover {
+  background: #555; /* Hiệu ứng hover trong chế độ tối */
+}
+
+.quiz-item {
+  margin-bottom: 20px;
+}
+
+.quiz-item p {
+  font-size: 16px;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.quiz-item label {
+  display: block;
+  margin-bottom: 5px;
+}
+
+.quiz-results p {
+  margin-bottom: 10px;
+  font-size: 14px;
+}
+
+.quiz-results strong {
+  font-weight: bold;
+}
+
+.quiz-results span {
+  font-size: 18px;
+}
+
+#word-list-container {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+#word-list-container li {
+  padding: 10px;
+  margin: 5px 0;
+  background: #f0f0f0;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+#word-list-container li:hover {
+  background: #e0e0e0;
+}
+
+body.dark #word-list-container li {
+  background: #444;
+  color: #fff;
+}
+
+body.dark #word-list-container li:hover {
+  background: #555;
+}
+.unified-section {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  padding: 20px;
+  background: #f9f9f9;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.unified-section h2 {
+  font-size: 18px;
+  margin: 0;
+}
+
+.progress-bar {
+  display: flex;
+  width: 100%;
+  height: 20px;
+  background: #ddd;
+  border-radius: 5px;
+  overflow: hidden;
+}
+
+.progress {
+  height: 100%;
+}
+
+.progress-not-learned {
+  background: #FF4C4C; /* Red */
+  width: 0;
+}
+
+.progress-uncertain {
+  background: #FFC107; /* Yellow */
+  width: 0;
+}
+
+.progress-learned {
+  background: #28A745; /* Green */
+  width: 0;
+}
+
+.word-status {
+  list-style: none;
+  padding: 0;
+}
+
+.word-status li {
+  margin: 5px 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.quiz-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.quiz-buttons button {
+  flex: 1;
+  padding: 10px;
+  background: #007BFF;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.quiz-buttons button:hover {
+  background: #0056b3;
+}
+
+.theme-options {
+  display: flex;
+  justify-content: space-between;
+}
+
+.theme-options button {
+  flex: 1;
+  margin: 0 5px;
+  padding: 10px;
+  background: #007BFF;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.theme-options button:hover {
+  background: #0056b3;
+}
+
+@media (max-width: 768px) {
+  body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column; /* Sắp xếp theo cột */
+    align-items: center;
+    justify-content: flex-start;
+    height: auto; /* Đảm bảo không gây tràn */
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+  }
+
+  .container {
+    flex-direction: column; /* Đặt các phần theo cột */
+    width: 100%;
+    height: auto; /* Tự động mở rộng theo nội dung */
+    box-shadow: none; /* Bỏ bóng để phù hợp với di động */
+    border-radius: 0; /* Không bo góc */
+    background: white;
+  }
+
+  .sidebar {
+    flex: none; /* Đảm bảo phần sidebar không giãn */
+    width: 100%;
+    padding: 10px;
+    border-right: none; /* Bỏ viền bên phải */
+    border-bottom: 1px solid #ddd; /* Viền dưới */
+  }
+
+  .main-content {
+    flex: none;
+    width: 100%;
+    padding: 10px;
+  }
+
+  .flashcard {
+    width: 100%; /* Đặt chiều rộng flashcard phù hợp với màn hình */
+    padding: 10px;
+    margin-bottom: 10px; /* Thêm khoảng cách giữa các phần */
+  }
+
+  .flashcard img {
+    max-width: 100%; /* Đảm bảo hình ảnh không tràn */
+    height: auto; /* Tự động căn chỉnh chiều cao */
+  }
+
+  .progress-section {
+    flex: none;
+    width: 100%;
+    padding: 10px;
+    border-left: none; /* Bỏ viền bên trái */
+    border-top: 1px solid #ddd; /* Thêm viền trên */
+  }
+
+  .progress-bar {
+    height: 15px; /* Giảm chiều cao thanh tiến trình */
+  }
+
+  .group-list,
+  .word-status {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+  }
+
+  .group-item {
+    padding: 10px;
+    margin: 5px 0;
+  }
+
+  .quiz-buttons {
+    flex-direction: column; /* Nút xếp thành cột */
+  }
+
+  .quiz-buttons button {
+    margin-bottom: 10px; /* Thêm khoảng cách giữa các nút */
+    flex: none;
+  }
+
+  .theme-options {
+    flex-direction: column; /* Sắp xếp theo cột */
+  }
+
+  .theme-options button {
+    margin: 5px 0; /* Khoảng cách giữa các nút */
+  }
+
+  .modal-content {
+    width: 95%;
+    padding: 10px;
+  }
+
+  .modal-content input[type="text"] {
+    font-size: 14px;
+    padding: 8px;
+  }
+
+  .modal-content button {
+    font-size: 14px;
+    padding: 8px;
+  }
+
+  .search-bar {
+    width: 100%; /* Phù hợp với chiều rộng di động */
+    margin-bottom: 10px;
+  }
+
+  .unified-section {
+    gap: 10px; /* Giảm khoảng cách giữa các thành phần */
+    padding: 10px;
+  }
+
+  .quiz-item p {
+    font-size: 14px; /* Giảm kích thước chữ */
+  }
+
+  .quiz-item label {
+    font-size: 12px; /* Giảm kích thước chữ */
+  }
+
+  .quiz-results span {
+    font-size: 16px; /* Kích thước chữ vừa với màn hình */
+  }
+}

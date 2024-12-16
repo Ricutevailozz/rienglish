@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Luyện tập</title>
+    <link rel="icon" type="image/png" href="RiEnglish.png">
+    <link rel="stylesheet" href="Trang trí trang web/Bài tập.css">
+    <script src="Chức năng của trang web/Bài tập.js"></script>
+</head>
+<body>
+    <div class="sidebar">
+        <a href="Trang chủ.html">Trang chủ</a>
+        <a href="Bài học.html">Bài học</a>
+        <a href="#" onclick="showChapters('Grammar')">Grammar</a>
+        <a href="#" onclick="showChapters('Vocabulary')">Vocabulary</a>
+        <a href="#" onclick="showChapters('Writing')">Writing</a>
+        <a href="#" onclick="showChapters('Listening')">Listening</a>
+        <a href="#" onclick="showChapters('Reading')">Reading</a>
+        <a href="#" onclick="resetData()">Xóa Dữ liệu</a>
+    </div>
+
+    <div class="content">
+        <h2>Chọn một mục</h2>
+    </div>
+
+    <div class="exercise">
+        <h2>Nội dung bài tập</h2>
+        <p>Chọn một bài để bắt đầu làm bài tập tại đây.</p>
+    </div>
+
+    <div id="addQuestionModal" class="modal" style="display: none;">
+        <div class="modal-content" style="background-color: #fff; padding: 20px; border: 1px solid #ccc; width: 90%; max-width: 500px; margin: 100px auto; position: relative;">
+            <span class="close" onclick="closeModal()" style="position: absolute; top: 10px; right: 15px; cursor: pointer; font-size: 20px;">&times;</span>
+            <h3>Thêm Câu Hỏi</h3>
+            
+            <label for="questionType">Chọn loại câu hỏi:</label>
+            <select id="questionType" onchange="showQuestionFields()" style="width: 100%; margin-bottom: 20px;">
+                <option value="">-- Chọn dạng câu hỏi --</option>
+                <option value="tracnghiem">Trắc nghiệm</option>
+                <option value="dienchu">Điền chữ</option>
+                <option value="audio">Audio</option>
+                <option value="doc_hieu">Đọc hiểu</option>
+                <option value="phat_am">Phát âm</option>
+            </select>
+    
+            <div id="questionFields"></div>
+    
+            <button onclick="addNewQuestion()" style="margin-top: 20px; padding: 10px; background-color: #6513ee; color: white; border: none;">Lưu Câu Hỏi</button>
+        </div>
+    </div>
+</body>
+</html>

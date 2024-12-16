@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Học từ vựng</title>
+  <link rel="icon" type="image/png" href="RiEnglish.png">
+  <link rel="stylesheet" href="Trang trí trang web/Từ vựng.css">
+  <script src="Chức năng của trang web/Từ vựng.js"></script>
+  
+</head>
+<body>
+  <div class="container">
+    <!-- Sidebar (25%) -->
+    <div class="sidebar">
+  <button onclick="window.location.href='Bài học.html'">Trở về</button>
+  <h2>Các nhóm từ vựng</h2>
+  <button onclick="openGroupManagerModal()">Quản lý nhóm</button>
+  <ul class="group-list">
+    <li class="group-item" onclick="loadRandomFlashcard('A1')">A1</li>
+    <li class="group-item" onclick="loadRandomFlashcard('A2')">A2</li>
+    <li class="group-item" onclick="loadRandomFlashcard('B1')">B1</li>
+        <li class="group-item" onclick="loadRandomFlashcard('B2')">B2</li>
+        <li class="group-item" onclick="loadRandomFlashcard('C1')">C1</li>
+        <li class="group-item" onclick="loadRandomFlashcard('C2')">C2</li>
+  </ul>
+  <button onclick="openFlashcardManagerModal()">Quản lý Từ Vựng</button>
+  <input id="search-bar" type="text" placeholder="Tìm kiếm..." class="search-bar" />
+  <div id="search-results"></div>
+</div>
+
+    <!-- Main Content (50%) -->
+    <div class="main-content">
+      <div class="flashcard">
+  <h2 id="word-title">Từ</h2>
+  <img id="word-image" src="" alt="Không có ảnh" />
+  <p id="word-pronunciation">Phát âm: <span>Mĩ/Anh</span></p>
+  <div id="word-meaning">
+    <p>Nghĩa sẽ hiện ở đây.</p>
+  </div>
+  <div id="examples">
+    <p><strong>Ví dụ:</strong> Ví dụ sẽ hiện ở đây.</p>
+  </div>
+  <div class="tags">
+    <p><strong>Từ đồng nghĩa:</strong> <span id="synonyms">Từ đồng nghĩa sẽ hiện ở đây.</span></p>
+    <p><strong>Từ trái nghĩa:</strong> <span id="antonyms">Từ trái nghĩa sẽ hiện ở đây.</span></p>
+  </div>
+  <div class="actions">
+    <button id="not-learned">Chưa học</button>
+    <button id="uncertain">Chưa chắc</button>
+    <button id="learned">Đã học</button>
+  </div>
+  <div class="navigation">
+    <button onclick="prevFlashcard()">&#8592; Từ trước</button>
+    <button onclick="nextFlashcard()">Từ sau &#8594;</button>
+  </div>
+</div>
+
+      <div id="quiz" class="quiz-section"></div>
+    </div>
+
+    <!-- Progress Section (25%) -->
+    <div class="progress-section unified-section">
+  <h2>Tiến trình: <span id="progress-text">0/10</span></h2>
+  <div class="progress-bar">
+    <div class="progress progress-not-learned"></div>
+    <div class="progress progress-uncertain"></div>
+    <div class="progress progress-learned"></div>
+  </div>
+
+  <!-- Display counts with buttons -->
+  <ul class="word-status">
+    <li>
+      <strong>Chưa học:</strong> <span id="not-learned-list">0</span>
+      <button onclick="showWordList('notLearned')">Hiển thị</button>
+      <button onclick="openReviewModal('notLearned')">Ôn lại</button>
+    </li>
+    <li>
+      <strong>Chưa chắc:</strong> <span id="uncertain-list">0</span>
+      <button onclick="showWordList('uncertain')">Hiển thị</button>
+      <button onclick="openReviewModal('uncertain')">Ôn lại</button>
+    </li>
+    <li>
+      <strong>Đã học:</strong> <span id="learned-list">0</span>
+      <button onclick="showWordList('learned')">Hiển thị</button>
+    </li>
+  </ul>
+
+  <!-- Buttons for review and quizzes -->
+  <div class="quiz-buttons">
+    <button onclick="startQuiz(1, 5)">Nối từ (5 Words)</button>
+    <button onclick="startQuiz(2, 5)">Trắc nghiệm (5 Words)</button>
+    <button onclick="startQuiz(3, 5)">Sắp xếp chữ cái (5 Words)</button>
+  </div>
+  <div id="quiz"></div>
+  <!-- Theme Options -->
+  <div class="theme-options">
+    <h3>Theme</h3>
+    <button onclick="changeTheme('light')">Chế độ sáng</button>
+    <button onclick="changeTheme('dark')">Chế độ tối</button>
+  </div>
+  <button onclick="resetData()">Đặt lại dữ liệu</button>
+</div>
+
+<div id="group-manager-modal" class="modal">
+  <div class="modal-content">
+    <span class="close" onclick="closeGroupManagerModal()">&times;</span>
+    <h3>Quản lý nhóm</h3>
+    <ul id="group-list-manager">
+      <!-- Danh sách nhóm sẽ được hiển thị ở đây -->
+    </ul>
+    <button onclick="addGroup()">Thêm nhóm</button>
+  </div>
+</div>
+
+<div id="flashcard-manager-modal" class="modal">
+  <div class="modal-content">
+    <span class="close" onclick="closeFlashcardManagerModal()">&times;</span>
+    <h3>Quản lý Flashcard</h3>
+    <ul id="flashcard-list">
+      <!-- Danh sách flashcard sẽ hiển thị ở đây -->
+    </ul>
+    <button onclick="openAddFlashcardModal()">Thêm Flashcard</button>
+  </div>
+</div>
+<div id="add-flashcard-modal" class="modal">
+  <div class="modal-content">
+    <span class="close" onclick="closeAddFlashcardModal()">&times;</span>
+    <h3>Thêm Flashcard</h3>
+    <input type="text" id="word-input" placeholder="Nhập từ" />
+    <input type="text" id="pronunciation-us" placeholder="Phát âm (US)" />
+    <input type="text" id="pronunciation-uk" placeholder="Phát âm (UK)" />
+    <input type="text" id="meaning-en" placeholder="Nghĩa tiếng Anh" />
+    <input type="text" id="meaning-vi" placeholder="Nghĩa tiếng Việt" />
+    <input type="text" id="synonyms" placeholder="Từ đồng nghĩa (cách nhau bởi dấu phẩy)" />
+    <input type="text" id="antonyms" placeholder="Từ trái nghĩa (cách nhau bởi dấu phẩy)" />
+    <input type="text" id="image-url" placeholder="URL hình ảnh" />
+    <button onclick="addFlashcard()">Thêm</button>
+  </div>
+</div>
+
+<div id="word-list-modal" class="modal">
+  <div class="modal-content">
+    <span class="close" onclick="closeWordListModal()">&times;</span>
+    <h3>Danh sách từ</h3>
+    <ul id="word-list-container"></ul>
+  </div>
+</div>
+<div id="review-modal" class="modal">
+  <div class="modal-content">
+    <span class="close" onclick="closeReviewModal()">&times;</span>
+    <h3>Chọn từ để ôn tập</h3>
+    <form id="review-form">
+      <ul id="review-word-list">
+        <!-- Danh sách từ sẽ được tạo động -->
+      </ul>
+      <button type="button" onclick="startReviewSession()">Bắt đầu ôn tập</button>
+    </form>
+  </div>
+</div>
+<div id="quiz-modal" class="modal">
+  <div class="modal-content">
+    <span class="close" onclick="closeModal()">&times;</span>
+    <div id="quiz-modal-body">
+      <!-- Nội dung quiz sẽ được hiển thị tại đây -->
+    </div>
+  </div>
+</div>
+ 
+</body>
+</html>

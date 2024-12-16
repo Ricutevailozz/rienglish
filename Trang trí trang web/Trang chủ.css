@@ -1,0 +1,430 @@
+
+* {
+box-sizing: border-box;
+}
+
+header .logo {
+display: flex;
+align-items: center;
+gap: 0.5rem; 
+}
+
+header .logo img {
+height: 50px; 
+width: auto; 
+}
+
+body {
+  font-family: 'Poppins', sans-serif;
+  margin: 0;
+  padding: 0;
+  color: #333;
+  overflow-x: hidden;
+}
+
+/* Header */
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #f8f9fa;
+  padding: 1rem 2rem;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+header nav a {
+  margin: 0 1rem;
+  text-decoration: none;
+  color: #333;
+  font-weight: 600;
+}
+
+header .cta {
+  display: flex;
+  align-items: center;
+}
+
+header .cta a, header .cta span {
+  text-decoration: none;
+  margin-left: 1rem;
+  padding: 0.5rem 1rem;
+  color: #fff;
+  border-radius: 4px;
+}
+
+header .cta .login {
+  background-color: #007BFF;
+}
+
+header .cta .signup {
+  background-color: #28A745;
+}
+
+header .cta .logout {
+  background-color: #DC3545;
+}
+
+header .cta span {
+  font-weight: bold;
+  color: #333;
+}
+
+img, video, iframe {
+max-width: 100%;
+height: auto;
+}
+
+/* Hero Section */
+.hero {
+  text-align: center;
+  background: url('https://images.unsplash.com/photo-1523240795612-9a054b0db644') no-repeat center center/cover;
+  color: #fff;
+  padding: 4rem 2rem;
+}
+
+.hero h1 {
+  font-size: 3rem;
+}
+
+.hero p {
+  font-size: 1.2rem;
+}
+
+.hero .btn {
+  display: inline-block;
+  background-color: #007BFF;
+  color: #fff;
+  padding: 1rem 2rem;
+  margin-top: 1rem;
+  text-decoration: none;
+  border-radius: 4px;
+}
+
+/* Knowledge Section */
+.knowledge {
+  padding: 3rem 2rem;
+  text-align: center;
+}
+
+.knowledge h2 {
+  margin-bottom: 2rem;
+  font-size: 2rem;
+}
+
+.knowledge .grid {
+  display: flex;
+  justify-content: space-around;
+  gap: 2rem;
+}
+
+.knowledge .card {
+  background: #f8f9fa;
+  padding: 1.5rem;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  width: 30%;
+}
+
+.knowledge .card img {
+width: 100%;
+height: 200px;
+object-fit: cover;
+border-radius: 8px 8px 0 0;
+margin-bottom: 1rem;
+}
+
+.benefit {
+padding: 3rem 2rem;
+text-align: center;
+}
+
+.benefit h2 {
+margin-bottom: 2rem;
+font-size: 2rem;
+}
+
+.benefit .grid {
+display: flex;
+flex-wrap: wrap;
+gap: 2rem;
+justify-content: space-around;
+}
+
+.benefit .card {
+background: #f8f9fa;
+padding: 1.5rem;
+border-radius: 8px;
+box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+width: 22%;
+box-sizing: border-box;
+}
+
+.benefit .card img {
+width: 80px;
+height: 80px;
+margin-bottom: 1rem;
+}
+
+.benefit .card h3 {
+font-size: 1.2rem;
+margin-bottom: 0.5rem;
+}
+
+.benefit .card p {
+font-size: 1rem;
+color: #555;
+}
+
+.team-section {
+padding: 3rem 2rem;
+text-align: center;
+background-color: #e9eaf3;
+color: #4a4a4a;
+}
+
+.team-title {
+font-size: 2.5rem;
+font-weight: bold;
+color: #1b2b55;
+margin-bottom: 1rem;
+}
+
+.team-description {
+max-width: 700px;
+margin: 0 auto 2rem;
+font-size: 1.2rem;
+color: #6c757d;
+}
+
+.team-container {
+display: flex;
+justify-content: space-between;
+gap: 1rem;
+flex-wrap: wrap;
+}
+
+.team-member {
+background-color: #d6e4f0;
+padding: 1.5rem;
+border-radius: 10px;
+text-align: center;
+width: 22%;
+box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.team-member img {
+width: 100%;
+height: auto;
+border-radius: 5px;
+margin-bottom: 1rem;
+}
+
+.member-name {
+font-size: 1.3rem;
+font-weight: bold;
+color: #1b2b55;
+margin-bottom: 0.5rem;
+}
+
+.member-role {
+font-size: 1rem;
+color: #6c757d;
+}
+
+
+.testimonials {
+  background-image: url('https://images6.alphacoders.com/114/1148181.png');
+        background-size: cover;  
+        background-position: center;  
+        background-repeat: no-repeat;
+  padding: 3rem 2rem;
+  text-align: center;
+}
+
+.testimonials h2 {
+    color: white;
+}
+
+.testimonials .testimonial {
+  background: #fff;
+  padding: 1.5rem;
+  border-radius: 8px;
+  display: inline-block;
+}
+
+.testimonials img {
+  width: 100px;
+  border-radius: 50%;
+  margin-bottom: 1rem;
+}
+
+.about-section {
+background-color: #808080; 
+padding: 2rem;
+text-align: center;
+color: #fff;
+margin-bottom: 0; 
+}
+
+.about-title {
+font-size: 2rem;
+font-weight: bold;
+border: 2px solid #fff;
+display: inline-block;
+padding: 0.5rem 1rem;
+margin-bottom: 1rem;
+}
+
+.about-description {
+max-width: 700px;
+margin: 0 auto;
+font-size: 1rem;
+line-height: 1.6;
+}
+
+
+
+/* Footer */
+footer {
+  background-image: url('https://i.redd.it/dark-mode-otherworld-wallpaper-v0-utqp151a9e7b1.png?width=2560&format=png&auto=webp&s=83be9ba625a27a96641d450fd82513424d605f9e');
+        background-size: cover;  
+        background-position: center;  
+        background-repeat: no-repeat;
+  color: #fff;
+  padding: 2rem;
+  display: flex;
+  justify-content: space-around;
+}
+
+footer a {
+  color: #bbb;
+  text-decoration: none;
+  display: block;
+  margin-bottom: 0.5rem;
+}
+
+footer a:hover {
+  color: #fff;
+}
+
+/* Tối ưu header */
+@media (max-width: 768px) {
+  header {
+    flex-direction: column;
+    text-align: center;
+    padding: 1rem;
+  }
+
+  header nav {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    margin-top: 1rem;
+  }
+
+  header nav a {
+    margin: 0.5rem 0;
+  }
+
+  header .cta {
+    flex-direction: column;
+    gap: 0.5rem;
+    margin-top: 1rem;
+  }
+}
+
+/* Tối ưu Hero Section */
+@media (max-width: 768px) {
+  .hero {
+    padding: 2rem 1rem;
+  }
+
+  .hero h1 {
+    font-size: 2rem;
+  }
+
+  .hero p {
+    font-size: 1rem;
+  }
+
+  .hero .btn {
+    padding: 0.8rem 1.5rem;
+    font-size: 1rem;
+  }
+}
+
+/* Tối ưu Knowledge Section */
+@media (max-width: 768px) {
+  .knowledge .grid {
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .knowledge .card {
+    width: 100%;
+  }
+}
+
+/* Tối ưu Benefit Section */
+@media (max-width: 768px) {
+  .benefit .grid {
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .benefit .card {
+    width: 100%;
+  }
+}
+
+/* Tối ưu Team Section */
+@media (max-width: 768px) {
+  .team-container {
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .team-member {
+    width: 100%;
+  }
+}
+
+/* Tối ưu Testimonials */
+@media (max-width: 768px) {
+  .testimonials {
+    padding: 2rem 1rem;
+  }
+
+  .testimonials .testimonial {
+    width: 100%;
+    padding: 1rem;
+  }
+}
+
+/* Tối ưu About Section */
+@media (max-width: 768px) {
+  .about-section {
+    padding: 1.5rem;
+  }
+
+  .about-title {
+    font-size: 1.5rem;
+  }
+
+  .about-description {
+    font-size: 0.9rem;
+  }
+}
+
+/* Tối ưu Footer */
+@media (max-width: 768px) {
+  footer {
+    flex-direction: column;
+    text-align: center;
+    padding: 1.5rem;
+  }
+
+  footer a {
+    margin: 0.5rem 0;
+  }
+}

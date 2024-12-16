@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Quản Lý Tài Khoản</title>
+  <style>
+    body { font-family: Arial, sans-serif; margin: 2rem; }
+    table { width: 100%; border-collapse: collapse; }
+    th, td { border: 1px solid #ccc; padding: 0.5rem; text-align: left; }
+    th { background-color: #f4f4f4; }
+    button { padding: 0.5rem; margin-right: 0.5rem; cursor: pointer; }
+  </style>
+</head>
+<body>
+  <h2>Quản Lý Tài Khoản</h2>
+  <table>
+    <thead>
+      <tr>
+        <th>Tên Đăng Nhập</th>
+        <th>Mật Khẩu</th>
+        <th>Hành Động</th>
+      </tr>
+    </thead>
+    <tbody id="userTableBody"></tbody>
+  </table>
+
+  <script>
+    function loadUsers() {
+      const users = JSON.parse(localStorage.getItem('users')) || {};
+      const tableBody = document.getElementById('userTableBody');
+      tableBody.innerHTML = '';
+
+      Object.keys(users).forEach(username => {
+        const row = document.createElement('tr');
+        row.innerHTML = `
+          <td>${username}</td>
+          <td>${users[username].password}</td>
+          <td>
+            <button onclick="deleteUser('${username}')">Xóa</button>
+            <button onclick="changePassword('${username}')">Đổi Mật Khẩu</button>
+          </td>
+        `;
+        tableBody.appendChild(row);
+      });
+    }
+
+    function deleteUser(username) {
+      if (confirm('Bạn có chắc muốn xóa tài khoản này không?')) {
+        let users = JSON.parse(localStorage.getItem('users'));
+        delete users[username];
+        localStorage.setItem('users', JSON.stringify(users));
+        loadUsers();
+      }
+    }
+
+    function changePassword(username) {
+      const newPassword = prompt('Nhập mật khẩu mới cho tài khoản "' + username + '":');
+      if (newPassword) {
+        let users = JSON.parse(localStorage.getItem('users'));
+        users[username].password = newPassword;
+        localStorage.setItem('users', JSON.stringify(users));
+        alert('Đổi mật khẩu thành công!');
+        loadUsers();
+      }
+    }
+
+    document.addEventListener('DOMContentLoaded', loadUsers);
+  </script>
+</body>
+</html>
