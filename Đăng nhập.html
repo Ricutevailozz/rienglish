@@ -79,21 +79,22 @@
 
   <script>
     document.getElementById('loginForm').addEventListener('submit', function(event) {
-      event.preventDefault();
-      const username = document.getElementById('username').value;
-      const password = document.getElementById('password').value;
+  event.preventDefault();
+  const username = document.getElementById('username').value;
+  const password = document.getElementById('password').value;
 
-      const userData = JSON.parse(localStorage.getItem(username));
+  // Lấy danh sách tài khoản từ localStorage
+  const users = JSON.parse(localStorage.getItem('users')) || {};
 
-      if (userData && userData.password === password) {
-        localStorage.setItem('currentUser', username);
-        localStorage.setItem('loggedIn', 'true');
-        alert('Đăng nhập thành công!');
-        window.location.href = 'index.html';
-      } else {
-        alert('Tên đăng nhập hoặc mật khẩu không đúng!');
-      }
-    });
+  if (users[username] && users[username].password === password) {
+    localStorage.setItem('currentUser', username);
+    localStorage.setItem('loggedIn', 'true');
+    alert('Đăng nhập thành công!');
+    window.location.href = 'Trang chủ.html';
+  } else {
+    alert('Tên đăng nhập hoặc mật khẩu không đúng!');
+  }
+});
   </script>
 </body>
 </html>
